@@ -1,0 +1,27 @@
+<!-- Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="res_config_settings_view_form_sale">
+        <field name="name">res.config.settings.form (in sale_default_terms_conditions)</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='quotation_order_setting_container']" position="inside">
+                <setting id="use_sale_terms" company_dependent="1" help="Add your terms &amp; conditions at the bottom of bills/orders/quotations">
+                    <field name="use_sale_note" string="Default Terms &amp; Conditions"/>
+                    <div class="content-group" invisible="not use_sale_note">
+                        <div class="mt16">
+                            <div>
+                                <field name="sale_note" widget="html" class="oe_account_terms mt-5 w-100"
+                                    placeholder="Insert your terms &amp; conditions here..."/>
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
